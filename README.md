@@ -38,6 +38,15 @@ models.TextField()
 models.DateTimeField() # Can add auto_now_add or auto_now
 ```
 
+### 절대 url 얻기
+
+```python
+def get_absolute_url(self):
+    return PATH
+```
+
+위 값을 `models`에 추가하면 해당 모델의 url을 얻을 수 있다.
+
 ## Create View.
 
 ### Add view into url
@@ -95,4 +104,27 @@ for loop등 명령에 해당하는 부분은 `{% %}`로 감싸고 변수를 의�
 <h4>{{ post.created_at }}</h4>
 <p>{{ post.content }}</p>
 {% endfor %}
+```
+
+## Create view with parameter
+
+`path`는 아래의 형식을 가짐
+
+```python
+path(url, VIEWS_FUNCTION)
+```
+
+`url`에 `<int:pk>`가 들어갈 경우 정수 형태의 값을 pk라는 변수에 담아서 해당 함수에 넘기겠다는 의미.
+
+```python
+path('<int:pk>/', views.single_post_page)
+```
+
+형식으로 보냈을 경우 `views`에서는 인자에 `pk`를 받을 변수를 하나 더 추가하면 된다.
+
+```python
+def single_post_page(request, pk):
+    post = Post.objects.get(pk=pk)
+
+    return render(request, 'blog/single_post.html', {'post': post})
 ```
