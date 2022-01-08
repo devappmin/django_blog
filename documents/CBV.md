@@ -69,3 +69,36 @@ class PostList(ListView):
     model = Post
     ordering = '-pk'
 ```
+
+## DetailView
+
+`list`에 대한 세부적인 화면을 보여줄 때는 `DetailView`를 활용하는 것이 더 좋다.
+
+**Before**
+
+```python
+def single_post_page(request, pk):
+    post = Post.objects.get(pk=pk)
+
+    return render(request, 'blog/single_post_page.html', {'post': post})
+```
+
+**After**
+
+```python
+class PostDetail(DetailView):
+    model = Post
+```
+
+### url 처리
+
+DetailView를 사용해서 값을 처리할 때는 url을 아래와 같이 처리해주면 된다.
+
+In `urls.py`,
+
+```python
+urlPattern = [
+    # Your other path here..
+    path('', views.PostDetail.as_view())
+]
+```
