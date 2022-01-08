@@ -141,3 +141,7 @@ def single_post_page(request, pk):
 
     return render(request, 'blog/single_post.html', {'post': post})
 ```
+
+## References
+
+[CBV](documents/CBV.md)
