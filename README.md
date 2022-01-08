@@ -18,6 +18,19 @@ $ python3 manage.py createsuperuser
 $ python3 manage.py startapp APP_NAME
 ```
 
+app을 만든 뒤에는 `urls.py`가 바로 생성이 안되기 때문에 필요 시 직접 생성해야 한다.
+
+```python
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    # Put your path here..
+]
+```
+
+많이 쓸 두 `module`을 `import`해주고 `urlpattern`을 삽입한다.
+
 ## Create Model.
 
 ### Basic Model
