@@ -145,3 +145,4 @@ def single_post_page(request, pk):
 ## References
 
 [CBV](documents/CBV.md)
+[Static And Media](documents/Static_And_Media.md)
