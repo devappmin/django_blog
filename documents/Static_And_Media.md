@@ -5,7 +5,9 @@
 정적인 파일을 추가하기 위해서는 `html` 파일 `<!DOCTYPE html>` 아래 해당 라인을 추가해야 한다.
 
 ```html
-<!DOCTYPE html> {% load static %}
+<!DOCTYPE html>
+
+{% load static %}
 ```
 
 ### 정적 파일 추가하기
