@@ -37,6 +37,12 @@ img = models.ImageField(upload_to='PATH', blank=True)
 
 `upload_to`는 이미지가 저장될 위치를 지정하는 것이고, blank는 값이 필수로 들어가지 않아도 된다는 것을 의미한다.
 
+### models에 파일 필드 추가
+
+```python
+img = models.FileField(upload_to='PATH', blank=True)
+```
+
 ### 미디어 파일을 위한 url 지정하기
 
 프로젝트의 `url.py`에서 media를 처리하는 url을 설정해야 한다.
