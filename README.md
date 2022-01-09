@@ -154,3 +154,5 @@ def single_post_page(request, pk):
 [Static And Media](documents/Static_And_Media.md)
 
 [Template](documents/Template.md)
+
+[Test](documents/Test.md)

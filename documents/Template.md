@@ -29,3 +29,23 @@
 <!-- 문자열을 글자 수 기준으로 자름 -->
 {{ p.content | truncatechars:45 }}
 ```
+
+## Value
+
+### 값이 존재하는지 확인
+
+`dictionary`에 값이 존재하는지 확인을 할 수 있다.
+
+```python
+dic.exists
+```
+
+이를 `template`에 적용시킬 수 있다.
+
+#### 예제
+
+```html
+{% if post_list.exists %}
+<!-- Do something.. -->
+{% endif %}
+```
