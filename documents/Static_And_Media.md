@@ -45,6 +45,13 @@ img = models.ImageField(upload_to='PATH', blank=True)
 img = models.FileField(upload_to='PATH', blank=True)
 ```
 
+### model에서 파일 이름 얻기
+
+```python
+def get_file_name(self):
+    return os.path.basename(self.file_upload.name)
+```
+
 ### 미디어 파일을 위한 url 지정하기
 
 프로젝트의 `url.py`에서 media를 처리하는 url을 설정해야 한다.

@@ -7,6 +7,8 @@
 ```html
 {% if SOMETHING %}
 <!-- Do something.. -->
+{% elif SOMETHING_ELSE %}
+<!-- Do another thing -->
 {% else %}
 <!-- Do another thing!! -->
 {% endif %}
