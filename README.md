@@ -142,7 +142,15 @@ def single_post_page(request, pk):
     return render(request, 'blog/single_post.html', {'post': post})
 ```
 
+## Lorem Sites
+
+[Korean Lorem Ipsum](https://hangul.thefron.me)
+[Lorem Picsum](https://picsum.photos/)
+
 ## References
 
 [CBV](documents/CBV.md)
+
 [Static And Media](documents/Static_And_Media.md)
+
+[Template](documents/Template.md)

@@ -1,3 +1,5 @@
+# Static and media files
+
 ## Static File.
 
 ### 정적 파일 관리하기
