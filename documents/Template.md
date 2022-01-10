@@ -30,6 +30,12 @@
 {{ p.content | truncatechars:45 }}
 ```
 
+### 대문자화
+
+```django
+{{ p.content | upper }}
+```
+
 ## Value
 
 ### 값이 존재하는지 확인
