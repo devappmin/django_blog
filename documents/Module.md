@@ -21,3 +21,11 @@
 <!-- Your codes here... -->
 {% endblock %}
 ```
+
+## include
+
+코드를 바로 읽어올 때는 `include`를 사용해서 얻어올 수 있음.
+
+```django
+{% include 'blog/navbar.html' %}
+```
