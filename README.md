@@ -142,6 +142,12 @@ def single_post_page(request, pk):
     return render(request, 'blog/single_post.html', {'post': post})
 ```
 
+## Import User Model
+
+```python
+from django.contrib.auth.models import User
+```
+
 ## Lorem Sites
 
 [Korean Lorem Ipsum](https://hangul.thefron.me)
