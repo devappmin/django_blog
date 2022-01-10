@@ -4,7 +4,7 @@
 
 아래의 코드를 통해서 `if-else`를 사용할 수 있다.
 
-```html
+```django
 {% if SOMETHING %}
 <!-- Do something.. -->
 {% elif SOMETHING_ELSE %}
@@ -20,7 +20,7 @@
 
 `truncatewords` 혹은 `truncatechars`를 사용해서 문자열 크기를 제한할 수 있다.
 
-```html
+```django
 <!-- truncatewords: 와 숫자 사이에 공백이 있으면 안됨! -->
 
 <!-- 문자열을 단어 수 기준으로 자름 -->
@@ -44,7 +44,7 @@ dic.exists
 
 #### 예제
 
-```html
+```django
 {% if post_list.exists %}
 <!-- Do something.. -->
 {% endif %}

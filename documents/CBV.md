@@ -54,7 +54,7 @@ urlPattern = [
 
 In `blog/index.html`,
 
-```html
+```django
 {% for post in post_list %}
 ```
 

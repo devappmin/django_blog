@@ -6,7 +6,7 @@
 
 정적인 파일을 추가하기 위해서는 `html` 파일 `<!DOCTYPE html>` 아래 해당 라인을 추가해야 한다.
 
-```html
+```django
 <!DOCTYPE html>
 
 {% load static %}
@@ -16,7 +16,7 @@
 
 그 이후에 파일을 불러올 때는 `{% static VALUE %}`을 이용하여 정적인 파일을 가져올 수 있다.
 
-```html
+```django
 <link rel="stylesheet" href="{% static 'blog/bootstrap/bootstrap.min.css' %}" />
 ```
 
@@ -71,6 +71,6 @@ urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 값을 가져올 때 `p.img`가 이미지 오브젝트라고 하자. 그럼 그 이미지의 `url`을 넣어주어야 한다.
 
-```html
+```django
 {{ p.img.url }}
 ```

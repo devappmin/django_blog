@@ -110,7 +110,7 @@ render(request, TEMPLATE, QUERY)
 
 for loop등 명령에 해당하는 부분은 `{% %}`로 감싸고 변수를 의미하는 곳은 `{{ }}`로 감싸줄 것
 
-```html
+```django
 {% for post in posts %}
 <hr />
 <h2>{{ post.title }}</h2>
@@ -145,6 +145,7 @@ def single_post_page(request, pk):
 ## Lorem Sites
 
 [Korean Lorem Ipsum](https://hangul.thefron.me)
+
 [Lorem Picsum](https://picsum.photos/)
 
 ## References
@@ -156,3 +157,5 @@ def single_post_page(request, pk):
 [Template](documents/Template.md)
 
 [Test](documents/Test.md)
+
+[Module](documents/Module.md)

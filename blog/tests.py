@@ -78,8 +78,8 @@ class TestView(TestCase):
 
         # 2.4 첫 번째 포스트의 제목이 포스트 영역에 있다.
         main_area = soup.find('div', id='main-area')
-        post_area = main_area.find('div', id='post-area')
-        self.assertIn(post_001.title, post_area.title)
+        post_area = main_area.find('article', id='post-area')
+        self.assertIn(post_001.title, post_area.text)
 
         # 2.5 첫 번째 포스트의 작성자(author)가 포스트 영역에 있다(아직 구현할 수 없음).
         # 작성 불가
