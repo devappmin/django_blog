@@ -148,6 +148,16 @@ def single_post_page(request, pk):
 from django.contrib.auth.models import User
 ```
 
+## Set Model Verbose
+
+```python
+class Category(models.Model):
+    class Meta:
+        verbose_name_plural = 'Categories'
+```
+
+위와 같이 지정해주면 `Categorys` 대신 `Categories`가 나온다.
+
 ## Lorem Sites
 
 [Korean Lorem Ipsum](https://hangul.thefron.me)

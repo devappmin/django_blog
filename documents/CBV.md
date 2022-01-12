@@ -102,3 +102,26 @@ urlPattern = [
     path('', views.PostDetail.as_view())
 ]
 ```
+
+## Override Context
+
+`CBV`에서는 기본적으로 `get_context_data` 메서드를 내장하고 있다. 그렇기 떄문에 `model = Post`라고 선언하면 해당 메서드에서 `post_list = Post.objects.all()`을 명령하고 그 덕분에 `{% for p in post_list %}` 또한 가능한 것이다. 이를 오버라이딩하여 수정하려고 하면 다음과 같이 해야한다.
+
+```python
+class PostList(ListView):
+    # Overriding 하는 부분
+    def get_context_data(self, **kwargs):
+        context = super(PostList, self).get_context_data()
+        context['categories'] = Category.objects.all()
+        context['no_category_post_count'] = Post.objects.filter(
+            category=None).count()
+        return context
+```
+
+이를 했다면 `html`에서 다음과 같이 활용할 수 있다.
+
+**ex.**
+
+```django
+{% for category in categories %}
+```
