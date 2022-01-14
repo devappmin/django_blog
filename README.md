@@ -133,6 +133,12 @@ path(url, VIEWS_FUNCTION)
 path('<int:pk>/', views.single_post_page)
 ```
 
+비슷하게 문자열 또한 인자값으로 넣어줄 수 있음.
+
+```python
+path('<str:slug>/', views.my_slug_slug)
+```
+
 형식으로 보냈을 경우 `views`에서는 인자에 `pk`를 받을 변수를 하나 더 추가하면 된다.
 
 ```python
