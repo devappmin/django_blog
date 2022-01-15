@@ -28,10 +28,23 @@
     <div class="card-body">
       <div class="small text-muted">
         {{ p.created_at }} - {{ p.author | upper }}
+        <!-- Category -->
         {% if p.category %}
         <a class="badge bg-secondary text-decoration-none link-light">{{ p.category }}</a>
         {% else %}
         <a class="badge bg-secondary text-decoration-none link-light">미분류</a>
+        {% endif %}
+        
+        <!-- Tag -->
+        {% if p.tags.exists %}
+        <i class="fas fa-tags"></i>
+          {% for tag in p.tags.iterator %}
+          <a href="{{ tag.get_absolute_url }}"class="badge bg-secondary text-decoration-none link-light">
+            <span >
+              {{ tag }}
+            </span>
+          </a>
+          {% endfor %}
         {% endif %}
       </div>
       <h2 class="card-title">{{ p.title }}</h2>

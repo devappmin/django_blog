@@ -172,12 +172,18 @@ class Category(models.Model):
 
 ## References
 
+[Admin](documents/Admin.md)
+
 [CBV](documents/CBV.md)
+
+[Models](documents/Models.py)
+
+[Module](documents/Module.md)
+
+[Relation](documents/Relation.md)
 
 [Static And Media](documents/Static_And_Media.md)
 
 [Template](documents/Template.md)
 
 [Test](documents/Test.md)
-
-[Module](documents/Module.md)
