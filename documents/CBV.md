@@ -103,6 +103,83 @@ urlPattern = [
 ]
 ```
 
+## Create View
+
+`Post`를 하기 위해서 CreateView를 활용할 수 있음.
+
+```python
+from django.views.generic import CreateView
+
+class PostCreate(CreateView):
+    model = Post
+    fields=['title', 'hook_text', 'content', 'head_image', 'file_upload', 'category']
+```
+
+`Create View`는 `<PATH>/post_form.html`을 요구한다.
+
+### HTML 처리
+
+```html
+<form method="post" enctype="multipart/form-data"></form>
+```
+
+`enctype`는 파일도 같이 전송하겠다는 의미다.
+
+```django
+{% csrf_token %}
+```
+
+위 값을 `<form>` 태그 안에다가 넣어주어 CSRF 공격으로부터 보호를 받을 수 있다.
+
+```django
+{{form}}
+```
+
+`{{form}}`을 통해서 `views`의 `fields`에 존재하는 값을 폼 형태로 넣을 수 있다.
+
+#### Full Code
+
+```django
+<form method="post" enctype="multipart/form-data">{% csrf_token %}
+    <table>
+        {{form}}
+    </table>
+    <button type="submit" class="btn btn-primary float-end">Submit</button>
+</form>
+```
+
+## Auth
+
+### 인증된 사용자만 들어올 수 있게 하기
+
+```python
+from django.contrib.auth.mixins import LoginRequiredMixin
+
+class PostCreate(LoginRequiredMixin, CreateView):
+    # Your Code Here..
+```
+
+`LoginRequiredMixin`을 통해서 인증된 사용자만 보이게 할 수 있다.
+
+### 자동으로 유저 인증하기
+
+`LoginRequiredMixin`과 `CreateView`를 통해 만들어진 클래스에서 `form_valid`를 통해서 자동으로 필드 값을 채울 수 있다. 아래의 예제는 `author`를 채우는 부분이다.
+
+```python
+def form_valid(self, form):
+    current_user = self.request.user
+    if current_user.is_authenticated:
+        form.instance.author = current_user
+        return super(PostCreate, self).form_valid(form)
+    else:
+        return redirect('/blog/')
+```
+
+1. `self.request.user`는 방문자를 의미
+2. `is_authenticated`는 로그인한 상태인지 확인
+3. `form.instance`는 새로 생성한 포스트에 `author` 필드를 현재 유저로 채움
+4. 방문자가 로그인하지 않으면 `redirect`로 `blog`로 이동
+
 ## Override Context
 
 `CBV`에서는 기본적으로 `get_context_data` 메서드를 내장하고 있다. 그렇기 떄문에 `model = Post`라고 선언하면 해당 메서드에서 `post_list = Post.objects.all()`을 명령하고 그 덕분에 `{% for p in post_list %}` 또한 가능한 것이다. 이를 오버라이딩하여 수정하려고 하면 다음과 같이 해야한다.
